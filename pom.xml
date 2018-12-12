@@ -69,6 +69,11 @@
         </repository>
     </repositories>
 
-
+    <!-- 腾讯云相关的api -->
+    <dependency>
+        <groupId>com.tencentcloudapi</groupId>
+        <artifactId>tencentcloud-sdk-java</artifactId>
+        <version>3.0.1</version>
+    </dependency>
 
 </project>

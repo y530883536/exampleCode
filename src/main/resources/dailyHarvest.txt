@@ -103,7 +103,7 @@ String里面只可能出现双数的"\"，不可能出现单数
 HashMap内部对key是没有排序的(或者说我完全看不出来)，TreeMap会对key做升序排列，所有有特殊的需求可以用TreeMap(比如腾讯云的很多接口的参数需要按名字升序排序，此时用TreeMap处理就会方便很多)
 字典序也就是ASCII码序(小写字母是比大写字母的值要大的)
 File file = new File("src/main/resources/address.xml");		//项目里的相对路径，从src文件夹开始
-
+secureCRT里面选择"快速连接"
 
 
 
