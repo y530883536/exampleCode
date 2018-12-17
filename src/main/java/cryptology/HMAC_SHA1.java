@@ -46,5 +46,7 @@ public class HMAC_SHA1 {
         String genHMAC = genHMAC(data, key);
         System.out.println(genHMAC.length());
         System.out.println(genHMAC);
+
+
     }  
 } 
