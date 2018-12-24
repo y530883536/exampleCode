@@ -70,7 +70,7 @@ HttpURLConnection connection = (HttpURLConnection)base.openConnection();				//Ht
 connection.setRequestProperty("Authorization","helloWorld");											//往Header里加参数										
 connection.setRequestMethod(RequestMethod.POST.name());											//设置访问的方法
 Spring一般在使用时的事务隔离级别选择ISOLATION_DEFAULT，跟随数据库的隔离级别就可以了，除非特殊情况（这种情况很少，出现的话也是DBA去处理）
-注解一般都是使用在具体的实现类(比如@Transaction)，很少使用在接口上(除非一些专门针对接口的注解)，因为注解不会被继承（也就是使用interface-based proxy）的时候
+注解一般都是使用在具体的实现类(比如@Transaction)，很少使用在接口上(除非一些专门针对接口的注解)，因为注解不会被继承（也就是使用interface-based proxy的时候注解可能不会生效）
 注：JDK的代理是interface-based的，cglib的代理是class-based的；
 Spring选择代理的原则是：如果bean实现了接口，那么会使用JDK代理；如果没有的实现接口则使用cglib代理；可以在配置文件中强制使用cglib代理
 因为上述的原因（Spring选择代理的不确定性），所以注解不适合写在接口上，而是应该写在具体实现类上
@@ -140,7 +140,6 @@ Controller一般按业务分，一般可以这样做，基础的表都有一个�
 
 12.17
 一般在正式的项目中，会用openId替代userId返回给前台或者APP端，因为userId会暴露用户量；openId和userId的作用一样，都是可以唯一标识一个用户
-如果是分布式数据库，那么一般会用单独的库标识+id来做id，这时openId也是能唯一的，不用担心会重复
 用户密码的加密：假设密码为123456，salt值为helloWorld
 	1）首先将密码123456进行MD5加密，变成e10adc3949ba59abbe56e057f20f883e
 	2）将加密后的密码加上salt值再进行MD5加密，也就是e10adc3949ba59abbe56e057f20f883ehelloWorld进行加密，变成05279868b8fb3f65ee1d809376d72075
