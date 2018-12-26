@@ -24,5 +24,9 @@ public class CollectionContainTest {
         list2.add(new BigInteger("4"));
         System.out.println(list1.containsAll(list2));
         System.out.println(System.currentTimeMillis());
+
+        List<String> list3 = new ArrayList<>();
+        List<String> list4 = null;
+        list3.addAll(list4);
     }
 }
