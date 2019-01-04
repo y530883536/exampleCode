@@ -189,8 +189,32 @@ registerwitheureka: false		不把自己的服务注册上eureka
 rollbackFor = Exception.class	//一般在有自定义的异常时会使用这个
 require_new使用的情况一般就是在有自定义异常的时候，比如说钥匙审核完成之后要在钥匙表和住户表分别生成记录，此时会判断住户表是不是已经有相同房间号和手机的用户，有的话不需要加(抛异常)，这时钥匙审核表和钥匙表的修改不能回滚
 
+12.27
+登陆限制次数防止暴力破解
+冷热数据分开，比方说过期的钥匙放到另外的表里
 
+12.28
+idea的keymap里面的fix doc comment是生成javadoc风格注释的，默认没有快捷键(自用的是Alt+M)
+像过期时间这种东西，一般会跟着一个状态(是否已过期)，在查询的时候直接按这个状态查，不要用>过期时间这种，然后写一个定时器定时更新这个过期状态
 
+12.29
+联合唯一索引不会考虑null的情况，假设有两个字段name和code组成联合唯一索引，name的值相同，code的值都为null，此时不会触发联合索引约束
+索引可以不选择类型(比如unique或者primary)，说明这只是个为了优化查询的普通索引
+
+12.30
+Spring Cloud只是一套规范，Spring Cloud Netflix和Spring Cloud Consul才是具体的规范实现；现在又多了一套Spring Cloud Alibaba
+Spring Cloud Alibaba有个非常大的优势，那就是它通过了阿里巴巴双十一的考验，在可靠性这方面应该是无敌一般的存在，而且文档也是中文的
+当我们在cmd敲java的时候，系统会在当前目录找有没有java.exe或者java.bat，如果没有的话就去系统变量的PATH里面注册的目录找
+JAVA_HOME，很多程序或第三方都会用到它(比如tomcat还有下面提到的javac命令)，它是必配的
+JDK5之后不需要配置classpath了
+tomcat的classpath是WEB-INF下的lib文件夹和classes文件夹，这是容器内部自己规定好的
+IDEA执行java程序时是自己指定classpath的位置和启动参数，它只依赖JAVA_HOME这个系统变量(猜的，但是应该不会错)
+Integer的范围是2开头的10位数(二十多亿)，不能接收时间戳的毫秒数(和时间戳有关的还是用BigInteger或者long吧)
+Long的范围是9开头的19位数(这个数字我连念都不会念)
+BigInteger是在Long类型都不够用的情况下使用的，正常情况下应该是不会用到才对(只能说荷包的技术负责人真的信心炸裂，19位数都觉得不够用)
+
+1.2
+已经记录到云笔记中
 
 
 
