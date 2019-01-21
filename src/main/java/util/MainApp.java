@@ -18,5 +18,8 @@ public class MainApp {
         System.out.println(new Date().getTime());
         Date date = new Date(Long.valueOf("1546078174632"));
         System.out.println(date);
+
+        Date date1 = DateUtil.getDayEndTime(new Date());
+        System.out.println(date1);
     }
 }

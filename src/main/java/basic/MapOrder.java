@@ -26,5 +26,7 @@ public class MapOrder {
         StringBuilder sb = new StringBuilder("12345");
         sb.deleteCharAt(sb.length()-1);
         System.out.println(sb);
+
+        System.out.println(map);
     }
 }
