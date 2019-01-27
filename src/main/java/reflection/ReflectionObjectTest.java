@@ -1,5 +1,9 @@
 package reflection;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+
 /**
  * @author yechangfeng
  * @date 2019/1/3
@@ -9,13 +13,21 @@ public class ReflectionObjectTest {
         //和容器一样，Class最好也指定类型
         Class<TestObject> objectClass = TestObject.class;
 
+        Constructor<TestObject> constructor = objectClass.getConstructor();
+
         //非static的方法，不管是直接调用还是反射调用，都需要一个实例
-        TestObject test = objectClass.getConstructor().newInstance();
+        TestObject test = constructor.newInstance();
         test.sayNoParam();
-        objectClass.getMethod("sayNoParam").invoke(test);
+        Method sayNoParam = objectClass.getMethod("sayNoParam");
+        sayNoParam.invoke(test);
 
         //调用有参的方法
-        objectClass.getMethod("sayWithParam",String.class).invoke(test,"fuckYou");
+        Method sayWithParam = objectClass.getMethod("sayWithParam", String.class);
+        sayWithParam.invoke(test,"fuckYou");
+        Type[] types = sayWithParam.getGenericParameterTypes();
+        for (Type type : types) {
+            System.out.println("类型名称" + type.getTypeName());
+        }
 
         //有参数的返回
         String value = (String)objectClass.getMethod("getValue").invoke(test);
