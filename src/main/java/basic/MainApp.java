@@ -1,28 +1,27 @@
 package basic;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 /**
+ * 这个类是测试代码的地方，记得及时清掉测试过代码，并且不要删除这个类
  * @author yechangfeng
  * @date 2018/12/20
  */
 public class MainApp {
     public static void main(String[] args) {
-        //System.out.println(SexEnum.MALE.getValue());
-        String str = "01020304";
-        String house = str.substring(0,2);
-        String unit = str.substring(2,4);
-        String room = str.substring(4,8);
-        System.out.println(house);
-        System.out.println(unit);
-        System.out.println(room);
-        Integer i = Integer.parseInt("02");
-        System.out.println(i);
-        String a = "1234567891123";
-        Integer ii = Integer.parseInt(a);
-        System.out.println(ii);
-        //Date没有接收BigInteger参数的方法
-        //Date date = new Date(new BigInteger("9223372036854775807"));
+        List<Integer> intList1 = new ArrayList<>();
+        intList1.add(1);
+        intList1.add(2);
+        List<Integer> intList2 = Collections.synchronizedList(intList1);
+        intList2.add(3);
+        intList1.add(4);
+        intList1.set(0,11);
+        intList2.set(1,22);
+        System.out.println(intList1);
+        System.out.println(intList2);
     }
 }
