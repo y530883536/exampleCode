@@ -43,3 +43,19 @@ public class Jdk8New {
         System.out.println("cao");
     }
 }
+
+class Money{
+    private int amount;
+
+    public Money(int amount){
+        this.amount = amount;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+}
