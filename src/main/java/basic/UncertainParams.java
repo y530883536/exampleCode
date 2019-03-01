@@ -16,6 +16,5 @@ public class UncertainParams {
         UncertainParams.test("jugg","ds","alchemist","am","tb");
         //不定参数本身就是一个数组，它和数组是可以互相转换
         UncertainParams.test(strs);
-        System.out.println("第一天结束，纪念一下");
     }
 }
