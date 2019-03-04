@@ -5,10 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -18,6 +15,15 @@ import java.util.concurrent.*;
  */
 public class MainApp {
     public static void main(String[] args) throws Exception {
-
+        PriorityQueue<String> queue = new PriorityQueue<>(5);
+        System.out.println(queue.add("a"));
+        System.out.println(queue.add("b"));
+        System.out.println(queue.add("c"));
+        System.out.println(queue.peek());
+        System.out.println(queue.poll());
+        System.out.println(queue.peek());
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
     }
 }
