@@ -13,12 +13,12 @@ public class FilterChain {
     }
 
     public void doFilter(Request request,Response response){
-        while(true){
+        /*while(true){
             Filter filter = filterQueue.poll();
             if(filter == null){
                 break;
             }
             filter.doFilter(request,response,this);
-        }
+        }*/
     }
 }
