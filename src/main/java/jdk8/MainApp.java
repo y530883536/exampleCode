@@ -33,5 +33,9 @@ public class MainApp {
 
         Supplier<String> supplier = String::new;
         System.out.println("supplier" + supplier.get());
+
+        Integer ii = new Integer("34");
+        Supplier<Integer> supplier1 = ii::intValue;
+        System.out.println(supplier1.get());
     }
 }
