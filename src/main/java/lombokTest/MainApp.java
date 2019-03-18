@@ -15,9 +15,9 @@ public class MainApp {
         System.out.println(person1);
         System.out.println(person1.equals(person2));
         Test test1 = new Test();
-        test1.setTestField("aaa");
+        test1.setTestField("test.conf");
         Test test2 = new Test();
-        test2.setTestField("aaa");
+        test2.setTestField("test.conf");
         System.out.println(test1.hashCode());
         System.out.println(test2.hashCode());
         System.out.println(test1.equals(test2));

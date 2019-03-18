@@ -2,6 +2,8 @@ package ycf.zero.mvc.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
@@ -12,8 +14,13 @@ import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.document.DocumentField;
 import org.elasticsearch.common.unit.TimeValue;
+import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.index.engine.Engine;
 import org.elasticsearch.index.query.*;
+import org.elasticsearch.index.reindex.BulkByScrollResponse;
+import org.elasticsearch.index.reindex.DeleteByQueryAction;
+import org.elasticsearch.index.reindex.DeleteByQueryRequest;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
@@ -41,11 +48,14 @@ public class TestController {
     public String esIndex() throws Exception{
         //写操作
         Map<String, Object> jsonMap = new HashMap<>();
-        jsonMap.put("user", "ycf");
-        jsonMap.put("postDate", new Date());
-        jsonMap.put("info", "what");
+        jsonMap.put("name", "林伟龙");
+        jsonMap.put("age", "28");
+        jsonMap.put("company", "壹心理");
+        jsonMap.put("job", "前端负责人");
+        jsonMap.put("createTime", new Date());
+        jsonMap.put("updateTime", new Date());
         //type一般都设置为doc，ES对这个貌似有优化
-        IndexRequest indexRequest = new IndexRequest("posts", "doc", "9")
+        IndexRequest indexRequest = new IndexRequest("user", "doc")
                 .source(jsonMap);
         IndexResponse indexResponse = client.index(indexRequest, RequestOptions.DEFAULT);
         return "写操作";
@@ -69,7 +79,7 @@ public class TestController {
 
     @RequestMapping("esSearch")
     public String esSearch() throws Exception{
-        SearchRequest searchRequest = new SearchRequest();
+        SearchRequest searchRequest = new SearchRequest("orders");
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         //搜索条件可以直接用QueryBuilders这个工具类直接创建
         //searchSourceBuilder.query(QueryBuilders.termQuery("user", "ycf"));
@@ -78,7 +88,7 @@ public class TestController {
         //MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("message", "test1");
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
         //WildcardQueryBuilder wBuilder1 = QueryBuilders.wildcardQuery("message", "*");
-        WildcardQueryBuilder wBuilder2 = QueryBuilders.wildcardQuery("info", "*wh*");
+        WildcardQueryBuilder wBuilder2 = QueryBuilders.wildcardQuery("mobile", "*899*");
         //WildcardQueryBuilder wBuilder3 = QueryBuilders.wildcardQuery("message", "*2019-03-11*");
         //boolQueryBuilder.must(wBuilder1);
         boolQueryBuilder.must(wBuilder2);
@@ -94,5 +104,17 @@ public class TestController {
             System.out.println(hit.getSourceAsString());
         }
         return "搜索操作";
+    }
+
+    @RequestMapping("esIndexDelete")
+    public String esIndexDelete() throws Exception{
+        DeleteRequest deleteRequest = new DeleteRequest("orders","doc","7");
+        DeleteResponse deleteResponse = client.delete(deleteRequest, RequestOptions.DEFAULT);
+        return "删除索引";
+    }
+
+    @RequestMapping("esIkSearch")
+    public String esIkSearch() throws Exception{
+        return "中文分词搜索";
     }
 }

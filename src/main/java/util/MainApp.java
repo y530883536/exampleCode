@@ -14,7 +14,7 @@ public class MainApp {
         person.setGender(1);
         Student student = new Student();
         PropertyUtil.setPropertyFor(person,student);
-        System.out.println("aaa");
+        System.out.println("test.conf");
         System.out.println(new Date().getTime());
         Date date = new Date(Long.valueOf("1546078174632"));
         System.out.println(date);
