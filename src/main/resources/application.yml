@@ -4,3 +4,13 @@ spring:
      username: root
      password: admin
      driver-class-name: com.mysql.jdbc.Driver
+
+elasticSearch:
+  host: 192.168.3.93
+  port: 9200
+  client:
+    connectNum: 10
+    connectPerRoute: 50
+
+server:
+  port: 8888
