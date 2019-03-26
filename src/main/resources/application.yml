@@ -1,9 +1,28 @@
+#Spring
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+    instance:
+      hostname: localhost
+      instance-id: http://localhost:8888
+
+server:
+  port: 8888
+
 spring:
   datasource:
      url: jdbc:mysql://127.0.0.1:3306/ycf?useUnicode=true&characterEncoding=utf8
      username: root
      password: admin
      driver-class-name: com.mysql.jdbc.Driver
+  data:
+    elasticsearch:
+        cluster-name: elasticsearch
+        cluster-nodes: 192.168.3.93:9300
+
 
 elasticSearch:
   #host: 192.168.3.93     #公司测试服务器的ES地址
@@ -13,5 +32,3 @@ elasticSearch:
     connectNum: 10
     connectPerRoute: 50
 
-server:
-  port: 8888
