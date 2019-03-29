@@ -13,4 +13,12 @@ public class User {
     public String getWish(String name){
         return "fuck you " + name;
     }
+
+    public boolean isBig(Integer length){
+        return length > 15;
+    }
+
+    public String getName(){
+        return "ycf";
+    }
 }

@@ -1,12 +1,10 @@
 package jdk8;
 
-import io.lettuce.core.output.KeyStreamingChannel;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.IntConsumer;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /*
@@ -22,17 +20,28 @@ public class MainApp {
 
         Consumer<String> sayNormal = user::sayNormal;
         strList.forEach(sayNormal);
-
+        //上下两个等价
+        for (String str : strList) {
+            user.sayNormal(str);
+        }
         //这里调用静态方法，User是大写
         Consumer<String> sayStatic = User::sayStatic;
         strList.forEach(sayStatic);
 
-        //这种有返回值的方法不是组装成一个Consumer对象，而是一个Function对象
-        //至于Function现在要怎么使用，暂时还不清楚
         Function<String, String> getWish = user::getWish;
+        String applyStr = getWish.apply("豪哥");
+        //上下两个等价
+        String wishStr = user.getWish("豪哥");
+        System.out.println(applyStr);
+        System.out.println(wishStr);
 
-        Supplier<String> supplier = String::new;
-        System.out.println("supplier" + supplier.get());
+        Predicate<Integer> predicate = user::isBig;
+        System.out.println(predicate.test(14));
+        System.out.println(predicate.test(17));
+
+        //Supplier<String> supplier = String::new;
+        Supplier<String> supplier = user::getName;
+        System.out.println("supplier:" + supplier.get());
 
         Integer ii = new Integer("34");
         Supplier<Integer> supplier1 = ii::intValue;
