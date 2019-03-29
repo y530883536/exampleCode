@@ -1,4 +1,4 @@
-package ycf.zero.mvc;
+package ycf.zero;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

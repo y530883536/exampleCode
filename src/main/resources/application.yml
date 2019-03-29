@@ -22,13 +22,10 @@ spring:
     elasticsearch:
         cluster-name: elasticsearch
         cluster-nodes: 192.168.3.93:9300
+  redis:
+    host: 192.168.3.93
+    port: 6379
 
 
-elasticSearch:
-  #host: 192.168.3.93     #公司测试服务器的ES地址
-  host: 192.168.10.126   #本地虚拟机上的ES地址
-  port: 9200
-  client:
-    connectNum: 10
-    connectPerRoute: 50
+
 
