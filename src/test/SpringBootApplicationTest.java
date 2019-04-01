@@ -1,18 +1,13 @@
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.RangeQueryBuilder;
-import org.elasticsearch.index.query.WildcardQueryBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import ycf.zero.mvc.SpringBootYcfApplication;
-import ycf.zero.mvc.elasticSearch.dao.SkuSearchDao;
-import ycf.zero.mvc.elasticSearch.model.Sku;
+import ycf.zero.SpringBootYcfApplication;
+import ycf.zero.elasticSearch.dao.SkuSearchDao;
+import ycf.zero.elasticSearch.model.Sku;
 
 import java.util.Iterator;
-import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringBootYcfApplication.class)
