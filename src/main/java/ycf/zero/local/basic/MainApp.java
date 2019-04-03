@@ -1,5 +1,8 @@
 package ycf.zero.local.basic;
 
+import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
+import ycf.zero.model.Product;
+
 import java.util.*;
 
 /**
@@ -9,14 +12,27 @@ import java.util.*;
  */
 public class MainApp {
     public static void main(String[] args) throws Exception {
-        List<String> list = new ArrayList<>();
-        list.add("hello");
-        list.add("fuck");
-        list.add("you");
-        String join = String.join(",", list);
-        System.out.println(join);
-        StringJoiner joiner = new StringJoiner("-");
-        joiner.add("fuck").add("you").add("hello");
-        System.out.println(joiner.toString());
+        List<User> list = new ArrayList<>();
+        User user = new User("ycf");
+        list.add(user);
+        user = null;
+        System.out.println(list.get(0).getName());
+        System.out.println(System.getProperty("user.dir"));
+    }
+}
+
+class User{
+    private String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

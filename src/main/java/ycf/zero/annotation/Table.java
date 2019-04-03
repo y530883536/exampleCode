@@ -1,4 +1,4 @@
-package ycf.zero.common.annotation;
+package ycf.zero.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

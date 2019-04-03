@@ -95,11 +95,26 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!-- mybaits的springboot starter -->
-        <!--<dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>-->
+        <!-- 使用mybatis-plus只需要这一个依赖，不需要其他任何myBatis-plus或者myBatis的依赖，不要乱加不然回报错 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- mybatis-plus代码生成器 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- mybatis-plus代码生成器需要的引擎模板 -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -118,17 +133,12 @@
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-
         <!-- 个推 -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.gexin.platform</groupId>
             <artifactId>gexin-rp-sdk-http</artifactId>
             <version>4.1.0.0</version>
-        </dependency>
+        </dependency>-->
 
         <!-- lombok -->
         <dependency>
@@ -210,12 +220,12 @@
     </dependencies>
 
     <!-- 个推 -->
-    <repositories>
+   <!-- <repositories>
         <repository>
             <id>getui-nexus</id>
             <url>http://mvn.gt.igexin.com/nexus/content/repositories/releases/</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <build>
         <plugins>

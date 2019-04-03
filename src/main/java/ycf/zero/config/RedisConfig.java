@@ -1,4 +1,4 @@
-package ycf.zero.common.redis;
+package ycf.zero.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
