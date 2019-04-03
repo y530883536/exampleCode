@@ -6,6 +6,6 @@ import ycf.zero.model.Product;
 import java.util.List;
 
 public interface ProductService extends IService<Product> {
-    List<Product> testSql();
-    List<Product> testXml();
+    List<Product> testSql(String productArea);
+    List<Product> testXml(String productArea);
 }

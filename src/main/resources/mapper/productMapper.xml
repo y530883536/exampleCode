@@ -3,7 +3,7 @@
 <mapper namespace="ycf.zero.mapper.ProductMapper">
 
     <select id="testXml" resultType="ycf.zero.model.Product" >
-      select * from product where product_area = 'Canada';
+      select * from product where product_area = #{productArea};
     </select>
 
 </mapper>

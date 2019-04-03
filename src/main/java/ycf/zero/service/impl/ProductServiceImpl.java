@@ -16,12 +16,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     private ProductMapper productMapper;
 
     @Override
-    public List<Product> testSql() {
-        return productMapper.testSql();
+    public List<Product> testSql(String productArea) {
+        return productMapper.testSql(productArea);
     }
 
     @Override
-    public List<Product> testXml() {
-        return productMapper.testXml();
+    public List<Product> testXml(String productArea) {
+        return productMapper.testXml(productArea);
     }
 }

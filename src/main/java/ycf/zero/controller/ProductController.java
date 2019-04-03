@@ -133,13 +133,13 @@ public class ProductController {
         return isSuccess;
     }
 
-    @GetMapping("/testSql")
-    public List<Product> testSql(){
-        return productService.testSql();
+    @GetMapping("/testSql/{productArea}")
+    public List<Product> testSql(@PathVariable String productArea){
+        return productService.testSql(productArea);
     }
 
-    @GetMapping("/testXml")
-    public List<Product> testXml(){
-        return productService.testXml();
+    @GetMapping("/testXml/{productArea}")
+    public List<Product> testXml(@PathVariable String productArea){
+        return productService.testXml(productArea);
     }
 }
