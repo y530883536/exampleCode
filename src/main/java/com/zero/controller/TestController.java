@@ -1,7 +1,9 @@
 package com.zero.controller;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.zero.utils.SpringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +29,14 @@ public class TestController {
         dataSourceMap.put("initialSize",druidDataSource.getInitialSize());
         dataSourceMap.put("maxWait",druidDataSource.getMaxWait());
         return dataSourceMap;
+    }
+
+    @GetMapping("/test")
+    public void test(){
+        ApplicationContext applicationContext = SpringUtil.getApplicationContext();
+        //Object a = applicationContext.getBean("EightSixDataSourceConfig");
+        Object b = applicationContext.getBean("eightSixDataSourceConfig");
+        System.out.println("test");
     }
 
 }

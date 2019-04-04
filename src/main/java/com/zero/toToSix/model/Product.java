@@ -13,6 +13,8 @@ import java.util.Date;
 @TableName("product")
 public class Product implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @TableId(type = IdType.AUTO)
     private Integer id;
 
@@ -31,5 +33,4 @@ public class Product implements Serializable {
 
     private String code;
 
-    private static final long serialVersionUID = 1L;
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.zero.toToSix.mapper.ProductMapper;
 import com.zero.toToSix.model.Product;
 import com.zero.toToSix.service.IProductService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

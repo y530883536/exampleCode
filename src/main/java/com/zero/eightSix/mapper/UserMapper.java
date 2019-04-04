@@ -2,15 +2,11 @@ package com.zero.eightSix.mapper;
 
 import com.zero.eightSix.model.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
-/**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author com
- * @since 2019-04-04
- */
+@Component
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
 }
