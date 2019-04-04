@@ -1,11 +1,11 @@
-package ycf.zero.service.impl;
+package ycf.zero.toToSix.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ycf.zero.mapper.ProductMapper;
-import ycf.zero.model.Product;
-import ycf.zero.service.ProductService;
+import ycf.zero.toToSix.mapper.ProductMapper;
+import ycf.zero.toToSix.model.Product;
+import ycf.zero.toToSix.service.ProductService;
 
 import java.util.List;
 

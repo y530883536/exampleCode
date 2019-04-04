@@ -1,7 +1,7 @@
-package ycf.zero.service;
+package ycf.zero.toToSix.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import ycf.zero.model.Product;
+import ycf.zero.toToSix.model.Product;
 
 import java.util.List;
 

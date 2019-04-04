@@ -1,11 +1,11 @@
-package ycf.zero.mapper;
+package ycf.zero.toToSix.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
-import ycf.zero.model.Product;
+import ycf.zero.toToSix.model.Product;
 
 import java.util.List;
 

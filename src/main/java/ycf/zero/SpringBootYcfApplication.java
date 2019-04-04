@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableCaching
 @SpringBootApplication
-@MapperScan(basePackages={"ycf.zero.mapper"})
+@MapperScan(basePackages={"ycf.zero.toToSix.mapper","ycf.zero.eightSix.mapper"})
 public class SpringBootYcfApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootYcfApplication.class);

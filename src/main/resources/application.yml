@@ -14,10 +14,28 @@ server:
 
 spring:
   datasource:
-     url: jdbc:mysql://192.168.1.226:3306/test?useUnicode=true&characterEncoding=utf8
-     username: root
-     password: 123456!
-     driver-class-name: com.mysql.jdbc.Driver
+    name: 226Test  #设置了数据源名字之后，在监控(druid提供了监控功能)列表上可以比较方便地发现，没多大用处
+    type: com.alibaba.druid.pool.DruidDataSource    #在这里指定Druid数据源
+    url: jdbc:mysql://192.168.1.226:3306/test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456!
+    driver-class-name: com.mysql.jdbc.Driver
+    #下面的数据源配置是易世通达的通用配置，在所有项目中基本可以通用
+    validation-query: SELECT 1;
+    sql-script-encoding: UTF-8
+    initial-size: 1
+    max-active: 50
+    max-wait: 60000
+    min-idle: 1
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    pool-prepared-statements: true
+    max-open-prepared-statements: 20
+    remove-abandoned-timeout: 5000
+    max-pool-prepared-statement-per-connection-size: 300
   data:
     elasticsearch:
         cluster-name: elasticsearch
@@ -27,7 +45,7 @@ spring:
     port: 6379
 
 mybatis-plus:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: ycf.model.zero.model
+  mapper-locations: classpath:mapper/toToSix/*.xml, classpath:mapper/eightSix/*.xml
+  type-aliases-package: ycf.model.zero.toToSix.model, ycf.model.zero.eightSix.model
 
 

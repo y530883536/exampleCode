@@ -1,7 +1,6 @@
 package ycf.zero.local.basic;
 
-import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
-import ycf.zero.model.Product;
+import ycf.zero.toToSix.model.Product;
 
 import java.util.*;
 
