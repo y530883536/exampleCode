@@ -3,9 +3,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import ycf.zero.SpringBootYcfApplication;
-import ycf.zero.elasticSearch.dao.SkuSearchDao;
-import ycf.zero.elasticSearch.model.Sku;
+import com.zero.SpringBootYcfApplication;
+import com.zero.elasticSearch.dao.SkuSearchDao;
+import com.zero.elasticSearch.model.Sku;
 
 import java.util.Iterator;
 

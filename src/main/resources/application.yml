@@ -46,6 +46,6 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath:mapper/toToSix/*.xml, classpath:mapper/eightSix/*.xml
-  type-aliases-package: ycf.model.zero.toToSix.model, ycf.model.zero.eightSix.model
+  type-aliases-package: com.zero.toToSix.model, com.zero.eightSix.model
 
 
