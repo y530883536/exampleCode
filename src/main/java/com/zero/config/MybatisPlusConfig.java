@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @MapperScan(basePackages={"com.zero.toToSix.mapper","com.zero.eightSix.mapper"})
 public class MybatisPlusConfig {
+
     @Bean
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
     }
+
 }

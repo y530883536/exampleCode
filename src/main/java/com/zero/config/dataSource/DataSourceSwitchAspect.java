@@ -16,23 +16,24 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class DataSourceSwitchAspect {
 
-    @Pointcut("execution(* com.zero.eightSix.*.*(..)) ")
+    @Pointcut("execution(* com.zero.eightSix.mapper.*.*(..))")
     private void eightSixAspect() {
     }
 
-    @Pointcut("execution(* com.zero.eightSix.*.*(..)) ")
+    @Pointcut("execution(* com.zero.toToSix.mapper.*.*(..)) ")
     private void toToSixAspect() {
     }
-
 
     @Before("eightSixAspect()")
     public void eightSix() {
         System.out.println("切换到86数据源...");
+        DbContextHolder.setDbType(DbTypeEnum.eightSixDataSource);
     }
 
     @Before("toToSixAspect()")
     public void toToSix() {
         System.out.println("切换到226数据源...");
+        DbContextHolder.setDbType(DbTypeEnum.toToSixDataSource);
     }
 
 }

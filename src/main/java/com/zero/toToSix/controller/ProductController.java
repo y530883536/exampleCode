@@ -31,7 +31,7 @@ public class ProductController {
     @GetMapping("/getById/{id}")
     public Product getById(@PathVariable Integer id){
         Product product = productService.getById(id);
-        System.out.println(port);
+        //System.out.println(port);
         return product;
     }
 

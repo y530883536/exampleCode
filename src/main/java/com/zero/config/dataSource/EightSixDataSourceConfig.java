@@ -1,18 +1,19 @@
 package com.zero.config.dataSource;
 
-import lombok.Data;
+import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+import javax.sql.DataSource;
 
-@Data
-@Component
-@ConfigurationProperties(prefix = "spring.datasource.eight-six")
+@Configuration
 public class EightSixDataSourceConfig {
 
-    private String name;
-    private String type;
-    private String url;
-    private String username;
-    private String password;
+    @Bean(name = "eightSixDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.eight-six")
+    public DataSource eightSixDataSource(){
+        return new DruidDataSource();
+    }
+
 }
