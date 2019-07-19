@@ -72,5 +72,10 @@ spring:
 mybatis-plus:
   mapper-locations: classpath:mapper/toToSix/*.xml, classpath:mapper/eightSix/*.xml
   type-aliases-package: com.zero.toToSix.model, com.zero.eightSix.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   #打印sql语句和结果，只用于本地调试，生产环境千万不能开
+    #map-underscore-to-camel-case: true                     #开启驼峰自动匹配，Model类的sellerId变量可以对应数据库seller_id字段，默认值就是true，也就是这句一般可以不写
+
+
 
 
