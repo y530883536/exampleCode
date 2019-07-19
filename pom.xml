@@ -219,6 +219,12 @@
             <scope>compile</scope>
         </dependency>
 
+        <!--<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            &lt;!&ndash;<version>1.7.25</version>&ndash;&gt;
+        </dependency>-->
+
     </dependencies>
 
     <!-- 个推 -->
@@ -230,35 +236,31 @@
     </repositories>-->
 
     <build>
+        <resources>
+            <!--<resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                &lt;!&ndash;是否替换资源中的属性&ndash;&gt;
+                <filtering>false</filtering>
+            </resource>-->
+            <!--<resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>mapper/userMapper.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>-->
+        </resources>
+
         <plugins>
             <!-- 将Spring Boot应用打包为可执行的jar或war文件，在本地运行的时候是不需要这个的，但是如果需要把项目扔上服务器跑的话这个插件是必备的  -->
             <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>-->
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <!--<archive>
-                        <manifest>
-                            <mainClass>com.cetc.di.App</mainClass>
-                        </manifest>
-                    </archive>-->
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
