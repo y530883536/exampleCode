@@ -1,4 +1,4 @@
-package com.zero.local.multithreading;
+package com.zero.local.multithreading.timer;
 
 import java.util.Date;
 import java.util.Timer;
