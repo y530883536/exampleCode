@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@TableName("product")
-public class Product implements Serializable {
+@TableName("company")
+public class Company implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,17 +20,7 @@ public class Product implements Serializable {
 
     private String name;
 
-    private Integer price;
+    private String address;
 
-    private String productArea;
-
-    private Date createTime;
-
-    private Date updateTime;
-
-    private String code;
-
-    @TableField("testnumber")
-    private Integer testNumber;
 
 }

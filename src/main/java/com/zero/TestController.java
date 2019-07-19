@@ -5,14 +5,18 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zero.eightSix.model.User;
 import com.zero.eightSix.service.IUserService;
+import com.zero.toToSix.mapper.CompanyMapper;
 import com.zero.toToSix.mapper.ProductMapper;
+import com.zero.toToSix.model.Company;
 import com.zero.toToSix.model.Product;
+import com.zero.toToSix.service.ICompanyService;
 import com.zero.toToSix.service.IProductService;
 import com.zero.utils.ProductUtils;
 import com.zero.utils.TestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +37,9 @@ public class TestController {
 
     @Autowired
     private ProductMapper productMapper;
+
+    @Autowired
+    private ICompanyService companyService;
 
     @Autowired
     private TestUtils testUtils;
@@ -100,5 +107,15 @@ public class TestController {
     public List<Product> testReload(){
         testUtils.test();
         return productMapper.testReload();
+    }
+
+    @GetMapping("/testCompanySql/{id}")
+    public List<Company> testCompanySql(@PathVariable Integer id){
+        return companyService.testCompanySql(id);
+    }
+
+    @GetMapping("getCompanyById/{id}")
+    public Company getCompanyById(@PathVariable Integer id){
+        return companyService.getById(id);
     }
 }

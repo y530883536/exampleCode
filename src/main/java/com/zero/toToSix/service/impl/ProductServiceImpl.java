@@ -22,7 +22,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
-    public List<Product> testXml(String productArea) {
-        return productMapper.testXml(productArea);
+    public List<Product> testXml(String productArea,Integer price) {
+        return productMapper.testXml(productArea,price);
     }
 }

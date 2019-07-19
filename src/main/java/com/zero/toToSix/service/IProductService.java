@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IProductService extends IService<Product> {
     List<Product> testSql(String productArea);
-    List<Product> testXml(String productArea);
+    List<Product> testXml(String productArea,Integer price);
 }
