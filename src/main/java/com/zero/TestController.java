@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 //这个类主要还是用来校验@Autowired相关的初始化以及如何调用
 @Slf4j
@@ -114,8 +116,26 @@ public class TestController {
         return companyService.testCompanySql(id);
     }
 
-    @GetMapping("getCompanyById/{id}")
+    @GetMapping("/getCompanyById/{id}")
     public Company getCompanyById(@PathVariable Integer id){
         return companyService.getById(id);
     }
+
+    @GetMapping("/testMap")
+    public Object testMap(){
+        return productService.testMap();
+    }
+
+    @GetMapping("/testJoinTable")
+    public List<Map> testJoinTable(){
+        return productService.testJoinTable();
+    }
+
+    @GetMapping("/testScript/{ids}")
+    public List<Product> testScript(@PathVariable String ids){
+        String[] idsStr = ids.split(",");
+        List<String> idList = Arrays.asList(idsStr);
+        return productService.testScript(idList);
+    }
+
 }

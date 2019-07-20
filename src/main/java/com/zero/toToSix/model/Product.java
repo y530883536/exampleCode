@@ -33,4 +33,6 @@ public class Product implements Serializable {
     @TableField("testnumber")
     private Integer testNumber;
 
+    private Integer companyId;
+
 }

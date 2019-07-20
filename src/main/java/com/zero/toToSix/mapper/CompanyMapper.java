@@ -19,4 +19,5 @@ public interface CompanyMapper extends BaseMapper<Company> {
     @Select("select * from company where id = #{id}")
     Company getById(@Param("id") Integer id);
 
+
 }

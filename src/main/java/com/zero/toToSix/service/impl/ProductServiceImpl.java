@@ -9,6 +9,7 @@ import com.zero.toToSix.service.IProductService;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> implements IProductService {
@@ -24,5 +25,20 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     public List<Product> testXml(String productArea,Integer price) {
         return productMapper.testXml(productArea,price);
+    }
+
+    @Override
+    public List<Map> testMap() {
+        return productMapper.testMap();
+    }
+
+    @Override
+    public List<Map> testJoinTable() {
+        return productMapper.testJoinTable();
+    }
+
+    @Override
+    public List<Product> testScript(List<String> idList) {
+        return productMapper.testScript(idList);
     }
 }
