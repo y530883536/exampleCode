@@ -16,4 +16,9 @@ public class MybatisPlusConfig {
         return new PaginationInterceptor();
     }
 
+    //这里测试使用了什么TransactionManager
+    @Bean
+    public Object testTransactionManager(){
+        return null;
+    }
 }
