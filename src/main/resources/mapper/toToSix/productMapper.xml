@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.toToSix.mapper.ProductMapper">
+
+    <select id="testXml" resultType="com.zero.toToSix.model.Product" >
+      select *,count(id) as count from product
+        <where>
+            product_area = #{productArea}
+            <choose>
+                <when test="price != null">
+                    and price >= #{price}
+                </when>
+            </choose>
+        </where>
+        group by id;
+    </select>
+
+    <select id="testXmlList" resultType="com.zero.toToSix.model.Product" >
+        select * from product
+        <where>
+            id not in
+            <foreach collection="idList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </where>
+    </select>
+
+</mapper>

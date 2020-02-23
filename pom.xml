@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ycf.zero.example</groupId>
+    <groupId>com.zero.example</groupId>
     <artifactId>exampleCode</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -78,36 +78,69 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- 这个是spring jdbc相关的依赖，为了不和mybaits冲突先把它注释掉 -->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>-->
-
         <!-- mysql JDBC -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- alibaba的druid数据源 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!-- mybaits的springboot starter -->
-        <!--<dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>-->
+        <!-- 使用mybatis-plus只需要这一个依赖，不需要其他任何myBatis-plus或者myBatis的依赖，不要乱加不然回报错 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
+        <!-- mybatis-plus代码生成器 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- mybatis-plus代码生成器需要的引擎模板 -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
 
         <!-- 个推 -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.gexin.platform</groupId>
             <artifactId>gexin-rp-sdk-http</artifactId>
             <version>4.1.0.0</version>
-        </dependency>
+        </dependency>-->
 
         <!-- lombok -->
         <dependency>
@@ -161,7 +194,7 @@
         </dependency>
 
         <!-- ElasticSearch需要的包 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
             <version>6.5.0</version>
@@ -170,7 +203,7 @@
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
             <version>6.5.0</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -186,46 +219,48 @@
             <scope>compile</scope>
         </dependency>
 
+        <!--<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            &lt;!&ndash;<version>1.7.25</version>&ndash;&gt;
+        </dependency>-->
+
     </dependencies>
 
     <!-- 个推 -->
-    <repositories>
+   <!-- <repositories>
         <repository>
             <id>getui-nexus</id>
             <url>http://mvn.gt.igexin.com/nexus/content/repositories/releases/</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <build>
+        <resources>
+            <!--<resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                &lt;!&ndash;是否替换资源中的属性&ndash;&gt;
+                <filtering>false</filtering>
+            </resource>-->
+            <!--<resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>mapper/userMapper.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>-->
+        </resources>
+
         <plugins>
             <!-- 将Spring Boot应用打包为可执行的jar或war文件，在本地运行的时候是不需要这个的，但是如果需要把项目扔上服务器跑的话这个插件是必备的  -->
             <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>-->
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <!--<archive>
-                        <manifest>
-                            <mainClass>com.cetc.di.App</mainClass>
-                        </manifest>
-                    </archive>-->
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
