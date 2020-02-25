@@ -13,7 +13,7 @@ import com.zero.elasticSearch.model.Sku;
 @RestController
 public class EsController {
 
-    @Autowired
+    //@Autowired
     private SkuSearchDao skuSearchDao;
 
     /*@GetMapping("/esSearch")

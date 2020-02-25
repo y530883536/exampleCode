@@ -97,6 +97,12 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
+        <!-- jdbc的starter，当只有一个数据源的时候，可以用这个starter进行DataSource的快速配置，同时还会自动配置号JdbcTemplate和TransactionManager -->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>-->
+
         <!-- 使用mybatis-plus只需要这一个依赖，不需要其他任何myBatis-plus或者myBatis的依赖，不要乱加不然回报错 -->
         <dependency>
             <groupId>com.baomidou</groupId>

@@ -16,4 +16,6 @@ public class EightSixDataSourceConfig {
         return new DruidDataSource();
     }
 
+    //todo YCF 这里测试配置了多个SqlSessionFactory的情况下，使用Autowired是否会报错
+
 }
