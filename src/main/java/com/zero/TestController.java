@@ -3,6 +3,8 @@ package com.zero;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zero.bean.TestUser1;
+import com.zero.bean.TestUser2;
 import com.zero.eightSix.model.User;
 import com.zero.eightSix.service.IUserService;
 import com.zero.toToSix.mapper.CompanyMapper;
@@ -14,7 +16,12 @@ import com.zero.toToSix.service.IProductService;
 import com.zero.utils.ProductUtils;
 import com.zero.utils.TestUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +52,27 @@ public class TestController {
 
     @Autowired
     private TestUtils testUtils;
+
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
+
+    @Autowired
+    private PlatformTransactionManager transactionManager;
+
+    @Autowired
+    private SqlSessionTemplate sqlSessionTemplate;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private TestUser1 testUser1;
+
+    @Autowired
+    private TestUser2 testUser2;
+
+    public TestController() {
+    }
 
     @GetMapping("/listTest")
     public List<User> listTest(){
@@ -138,4 +166,29 @@ public class TestController {
         return productService.testScript(idList);
     }
 
+    @GetMapping("/testSqlConf")
+    public String testSqlConf(){
+        System.out.println(sqlSessionFactory);
+        System.out.println(sqlSessionTemplate);
+        System.out.println(transactionManager);
+        System.out.println(jdbcTemplate);
+        return "testConf";
+    }
+
+    @GetMapping("/testNameAware")
+    public String testNameAware(){
+        System.out.println("name1:" + testUser1.getUserName());
+        System.out.println("name2:" + testUser2.getUserName());
+        return "testNameAware";
+    }
+
+    @GetMapping("/testReturnId")
+    public String testReturnId(){
+        Company company = new Company();
+        company.setName("asd");
+        company.setAddress("ds");
+        boolean isSuccess = companyService.save(company);
+        System.out.println(company.getId());
+        return "testReturnId";
+    }
 }
