@@ -35,4 +35,8 @@ public class Product implements Serializable {
 
     private Integer companyId;
 
+    //表示这个字段在当前表里不存在
+    @TableField(exist = false)
+    private String address;
+
 }
